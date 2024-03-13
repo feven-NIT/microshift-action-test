@@ -176,11 +176,11 @@ get_arch
 get_os_version
 install_dependencies
 #establish_firewall
-install_crio
-crio_conf
-verify_crio
-get_oc_kubectl
-get_microshift
+#install_crio
+#crio_conf
+#verify_crio
+#get_oc_kubectl
+#get_microshift
 
 until sudo test -f /var/lib/microshift/resources/kubeadmin/kubeconfig; do
     sleep 2
