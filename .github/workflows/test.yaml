@@ -18,27 +18,6 @@ on:
 
 jobs:
 
-  test-with-inputs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Create MicroShift cluster with custom version
-        uses: ./
-        with:
-          version: "4.8.0-0.microshift-2022-03-11-124751"
-
-      - name: Test
-        run: |
-          sleep 1m
-          oc version
-          oc cluster-info
-          oc wait --for=condition=Ready nodes --all --timeout=300s
-          oc describe nodes
-          oc wait --for=condition=Ready pods --all -A --timeout=300s
-          oc get pods -A
-
   test-default:
     strategy:
       fail-fast: false
